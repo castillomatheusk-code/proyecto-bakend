@@ -18,8 +18,9 @@ Este comando leerá el archivo package.json y descargará automáticamente todas
 3. Iniciar el servidor
 Una vez que termine la instalación, inicia la aplicación con el comando:
 
-Bash
+
 npm start
+
 Nota: Si configuraste un script de desarrollo con nodemon, puedes usar npm run dev.
 
 4. Acceder en el navegador
