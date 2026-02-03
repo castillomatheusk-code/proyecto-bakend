@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle del Cliente</title>
+</head>
+<body>
+    <h1>Perfil del Paciente</h1>
+    <p><strong>Nombre:</strong> <%= cliente.nombreDelCliente %></p>
+    <p><strong>Cédula:</strong> <%= cliente.cedulaCliente %></p>
+    
+    <hr>
+    <h3>Muestras Asociadas (Relaciones)</h3>
+    <ul>
+        <% if (typeof muestras !== 'undefined' && muestras.length > 0) { %>
+            <% muestras.forEach(m => { %>
+                <li>
+                    ID Muestra: <%= m.idMuestra %> - 
+                    Tipo: <strong><%= m.tipoMuestra %></strong> - 
+                    Estado: <%= m.estadoMuestra %>
+                </li>
+            <% }) %>
+        <% } else { %>
+            <li>No hay muestras registradas para este cliente.</li>
+        <% } %>
+    </ul>
+
+    <br>
+    <a href="/">Volver al listado</a>
+</body>
+</html>
