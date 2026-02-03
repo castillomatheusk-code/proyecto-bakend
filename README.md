@@ -10,8 +10,9 @@ Asegúrate de estar situado en la raíz del proyecto (donde se encuentra el arch
 2. Reinstalar las dependencias
 Como la carpeta node_modules no está en el repositorio, debes reconstruirla ejecutando el siguiente comando:
 
-Bash
+
 npm install
+
 Este comando leerá el archivo package.json y descargará automáticamente todas las librerías necesarias (Express, EJS, etc.).
 
 3. Iniciar el servidor
