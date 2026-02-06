@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nómina de Personal</title>
+</head>
+<body>
+    <h1>Personal de Laboratorio</h1>
+    <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse;">
+        <thead style="background: #27ae60; color: white;">
+            <tr><th>ID</th><th>Nombre</th><th>Cédula</th></tr>
+        </thead>
+        <tbody>
+            <% empleados.forEach(e => { %>
+                <tr>
+                    <td><%= e.empleadoId %></td>
+                    <td><%= e.nombre %></td>
+                    <td><%= e.cedula %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <br><a href="/">Volver al Inicio</a>
+</body>
+</html>

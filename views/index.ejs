@@ -1,44 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title><%= title %></title>
-    <link relstylesheet' href='/stylesheets/style.css' />
-</head>
+<head><title>Laboratorio UVM</title></head>
 <body>
-    <h1>Gestión de Laboratorio - UVM</h1>
+    <h1>Panel Administrativo</h1>
+    <nav>
+        <a href="/muestras/nueva">➕ Nueva Muestra</a> | 
+        <a href="/examenes/nuevo">🔬 Cargar Examen</a> | 
+        <a href="/empleados">👥 Personal</a> | 
+        <a href="/examenes">📑 Reportes</a>
+    </nav>
     <hr>
-
-    <h2>Registrar Nuevo Cliente (POST)</h2>
-    <form action="/cliente" method="POST">
-        <input type="text" name="nombre" placeholder="Nombre Completo" required>
-        <input type="number" name="cedula" placeholder="Cédula" required>
-        <button type="submit">Guardar Cliente</button>
-    </form>
-
-    <hr>
-
-    <h2>Lista de Clientes (GET)</h2>
     <table border="1" cellpadding="10">
-        <thead>
+        <tr><th>Paciente</th><th>Cédula</th><th>Acciones</th></tr>
+        <% clientes.forEach(c => { %>
             <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Cédula</th>
-                <th>Acciones</th>
+                <td><%= c.nombreDelCliente %></td>
+                <td><%= c.cedulaCliente %></td>
+                <td><a href="/cliente/<%= c.idCliente %>">Ver Expediente</a></td>
             </tr>
-        </thead>
-        <tbody>
-            <% clientes.forEach(cliente => { %>
-                <tr>
-                    <td><%= cliente.idCliente %></td>
-                    <td><%= cliente.nombreDelCliente %></td>
-                    <td><%= cliente.cedulaCliente %></td>
-                    <td>
-                        <a href="/cliente/<%= cliente.idCliente %>">Ver Detalles</a>
-                    </td>
-                </tr>
-            <% }) %>
-        </tbody>
+        <% }) %>
     </table>
 </body>
 </html>

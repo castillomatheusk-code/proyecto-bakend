@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Detalle del Cliente</title>
-</head>
+<head><title>Expediente</title></head>
 <body>
-    <h1>Perfil del Paciente</h1>
-    <p><strong>Nombre:</strong> <%= cliente.nombreDelCliente %></p>
-    <p><strong>Cédula:</strong> <%= cliente.cedulaCliente %></p>
-    
-    <hr>
-    <h3>Muestras Asociadas (Relaciones)</h3>
-    <ul>
-        <% if (typeof muestras !== 'undefined' && muestras.length > 0) { %>
-            <% muestras.forEach(m => { %>
-                <li>
-                    ID Muestra: <%= m.idMuestra %> - 
-                    Tipo: <strong><%= m.tipoMuestra %></strong> - 
-                    Estado: <%= m.estadoMuestra %>
-                </li>
-            <% }) %>
-        <% } else { %>
-            <li>No hay muestras registradas para este cliente.</li>
-        <% } %>
-    </ul>
-
-    <br>
-    <a href="/">Volver al listado</a>
+    <h1>Paciente: <%= cliente.nombreDelCliente %></h1>
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Muestra</th><th>Personal</th><th>Resultado</th><th>Estado Muestra</th>
+        </tr>
+        <% historial.forEach(h => { %>
+            <tr>
+                <td><%= h.tipoMuestra %></td>
+                <td><%= h.nombreEmpleado %></td>
+                <td>
+                    <%= h.resultadoExamen %> 
+                    <% if(h.idExamen) { %> <a href="/examenes/editar/<%= h.idExamen %>">[✏️]</a> <% } %>
+                </td>
+                <td>
+                    <%= h.estadoMuestra %> <a href="/muestras/editar/<%= h.idMuestra %>">[✏️]</a>
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+    <br><a href="/">Volver</a>
 </body>
 </html>

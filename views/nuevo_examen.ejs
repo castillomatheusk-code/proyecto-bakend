@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Resultado de Examen</title>
+    <style>body { font-family: sans-serif; padding: 30px; } form { max-width: 400px; }</style>
+</head>
+<body>
+    <h1>Registrar Nuevo Resultado</h1>
+    <form action="/examenes/nuevo" method="POST">
+        <label>Seleccionar Muestra (ID - Tipo):</label><br>
+        <select name="idMuestra" required style="width: 100%; padding: 8px;">
+            <% muestras.forEach(m => { %>
+                <option value="<%= m.idMuestra %>">ID: <%= m.idMuestra %> - <%= m.tipoMuestra %></option>
+            <% }) %>
+        </select><br><br>
+
+        <label>Resultado del Análisis:</label><br>
+        <textarea name="datosExamen" rows="4" style="width: 100%;" placeholder="Ej: Glucosa 110mg/dL..." required></textarea><br><br>
+
+        <label>Estado del Examen:</label><br>
+        <select name="estadoExamen" style="width: 100%; padding: 8px;">
+            <option value="por_entregar">Por Entregar</option>
+            <option value="entregado">Entregado</option>
+        </select><br><br>
+
+        <button type="submit" style="padding: 10px 20px; background: #2980b9; color: white; border: none; cursor: pointer;">
+            Guardar Examen
+        </button>
+    </form>
+    <br><a href="/examenes">Cancelar y volver</a>
+</body>
+</html>

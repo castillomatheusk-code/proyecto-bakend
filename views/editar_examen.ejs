@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Editar Examen</title></head>
+<body>
+    <h2>Modificar Resultado</h2>
+    <form action="/examenes/actualizar/<%= examen.idExamen %>" method="POST">
+        <textarea name="datosExamen"><%= examen.datosExamen %></textarea><br>
+        <select name="estadoExamen">
+            <option value="por_entregar">Por Entregar</option>
+            <option value="entregado">Entregado</option>
+        </select>
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>
