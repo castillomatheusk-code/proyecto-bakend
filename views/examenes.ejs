@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Exámenes</title>
+</head>
+<body>
+    <h1>Reporte General de Exámenes</h1>
+    <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse;">
+        <thead style="background: #2980b9; color: white;">
+            <tr><th>ID Examen</th><th>ID Muestra</th><th>Resultado</th><th>Estado</th></tr>
+        </thead>
+        <tbody>
+            <% examenes.forEach(ex => { %>
+                <tr>
+                    <td><%= ex.idExamen %></td>
+                    <td><%= ex.idMuestra %></td>
+                    <td><%= ex.datosExamen %></td>
+                    <td><%= ex.estadoExamen %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <br><a href="/">Volver al Inicio</a>
+</body>
+</html>

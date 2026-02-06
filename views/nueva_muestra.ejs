@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Muestra</title>
+</head>
+<body>
+    <h1>Nueva Entrada de Muestra</h1>
+    <form action="/muestras/nueva" method="POST">
+        <label>Tipo de Muestra:</label><br>
+        <input type="text" name="tipoMuestra" required><br><br>
+        
+        <label>Estado Inicial:</label><br>
+        <input type="text" name="estadoMuestra" value="Pendiente" required><br><br>
+
+        <label>Asignar Cliente:</label><br>
+        <select name="idCliente">
+            <% clientes.forEach(c => { %>
+                <option value="<%= c.idCliente %>"><%= c.nombreDelCliente %></option>
+            <% }) %>
+        </select><br><br>
+
+        <label>Asignar Empleado:</label><br>
+        <select name="empleadoId">
+            <% empleados.forEach(e => { %>
+                <option value="<%= e.empleadoId %>"><%= e.nombre %></option>
+            <% }) %>
+        </select><br><br>
+
+        <button type="submit">Guardar Registro</button>
+    </form>
+    <br><a href="/">Cancelar</a>
+</body>
+</html>

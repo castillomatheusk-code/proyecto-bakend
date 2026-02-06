@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Editar Muestra</title></head>
+<body>
+    <h2>Cambiar Estado de Muestra</h2>
+    <form action="/muestras/actualizar/<%= muestra.idMuestra %>" method="POST">
+        <select name="estadoMuestra">
+            <option value="Pendiente">Pendiente</option>
+            <option value="Analizada">Analizada</option>
+            <option value="Entregada">Entregada</option>
+        </select>
+        <button type="submit">Actualizar</button>
+    </form>
+</body>
+</html>

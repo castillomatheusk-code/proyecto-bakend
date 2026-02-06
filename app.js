@@ -1,26 +1,24 @@
 const express = require('express');
 const path = require('path');
-const logger = require('morgan');
-
-// 1. Importar Seed y Router
 const { seed } = require('./src/models/index');
 const labRouter = require('./src/routers/labRouter');
 
-const app = express();
+const app = express(); // Aquí se crea la función app
 
-// 2. Ejecutar Seed
-seed();
+// Ejecutar la semilla de datos
+seed(); 
 
-// Configuración de EJS
+// Configuración de vistas
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(logger('dev'));
+// Middlewares para leer datos de formularios y JSON
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// 3. Usar el nuevo Router
+// CONEXIÓN DE RUTAS
 app.use('/', labRouter);
 
+// LA LÍNEA MÁS IMPORTANTE PARA QUITAR EL ERROR:
 module.exports = app;
